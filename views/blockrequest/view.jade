@@ -1,0 +1,19 @@
+extends ../layout/base
+block content
+	section.content-header
+	section.content
+		.box
+			.box-header.with-border
+				.box-tools.pull-right
+					button(type='button', data-widget='collapse', data-toggle='tooltip',title='collapse').btn.btn-box-tool
+						i.fa.fa-minus
+
+			.box-body
+					.row
+						.col-xs-6
+							.box-body
+								.form-group
+									img(src='#{imgurl}' width=700, height=700)
+							.box-footer
+								a(href='/blockrequest').btn.btn-primary.pull-right
+									| Back

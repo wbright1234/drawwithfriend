@@ -1,0 +1,42 @@
+extends ../layout/base
+block content
+	section.content-header
+		h1
+			| Draw With Friend
+			small
+	section.content
+		.box
+			.box-header.with-border
+				h3.box-title
+					| Subject
+				.box-tools.pull-right
+					button(type='button', data-widget='collapse', data-toggle='tooltip',title='collapse').btn.btn-box-tool
+						i.fa.fa-minus
+
+			.box-body
+				form(role='form',method='post' action='/subject/add')
+					.row
+
+						.col-xs-6
+							.box-body
+								- if (messages.msg_error)
+									.alert.alert-danger.alert-dismissable
+										button.close(type='button', data-dismiss='alert', aria-hidden='true')
+											| ×
+										h4
+											i.icon.fa.fa-ban
+											| Alert!
+										| !{messages.msg_error}
+								.form-group
+									label
+										| Title
+									input(type='text',value='#{subjectname}',name='subjectname',placeholder='Enter Title', autofocus).form-control
+								.form-group
+									label
+										| Search Url
+									input(type='text',value='#{searchurl}',name='searchurl',placeholder='Enter Search Url').form-control
+							.box-footer
+								button(type='submit').btn.btn-primary
+									| Submit
+								a(href='/subject').btn.btn-primary.pull-right
+									| Back

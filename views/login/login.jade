@@ -1,0 +1,21 @@
+extends ../layout/base1
+
+block content
+    div(style='width: 500px; margin: 0 auto;')
+        h1 Log In
+        - if (messages.msg_error)
+          .alert.alert-danger.alert-dismissable
+            button.close(type='button', data-dismiss='alert', aria-hidden='true')
+              | ×
+            h4
+              i.icon.fa.fa-ban
+              | Alert!
+            | !{messages.msg_error}
+        form(method='POST' action='/login')
+          div.form-group
+            label(for='email') Email
+            input.form-control(type='text' id='email' placeholder='email' name='email')
+          div.form-group
+            label(for='password') Password
+            input.form-control(type='password' id='password' placeholder='password' name='password')
+          button.btn.btn-primary(type='submit') Log in
